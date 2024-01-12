@@ -29,6 +29,16 @@ import kotlinx.coroutines.delay
 
 var i =0
 
+
+//Launched Effect
+//Remember Coroutine Scope
+//Remember Update State
+//Disposable Effect
+//DerivedStateOf
+//ProduceState
+//Side Effect
+//SnapShotFlow
+
 class MainActivity : ComponentActivity() {
 
     val viewModel : LaunchedEffectViewModel by viewModels()
