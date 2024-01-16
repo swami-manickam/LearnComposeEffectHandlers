@@ -14,7 +14,7 @@ class LaunchedEffectViewModel : ViewModel() {
 
     init {
 
-        //here we emit a new event show snack by event and we want to show the snackbar with text in our screen
+        //here we emit a new event show snack by event and we want to show the snack bar with text in our screen
         //how can we now collect this flow in our composable because
         // if we would just do shared flow.collect in the composable function itself that would be a side effect
         // because the collect function would be called with every single recomposition and we can control that so
@@ -33,7 +33,7 @@ class LaunchedEffectViewModel : ViewModel() {
     }
 
     // We have screen events if you want to show snack bar or navigate to different screens
-    // we can send these events from viewmodel to ui
+    // we can send these events from view model to ui
     sealed class ScreenEvents {
         data class ShowSnackBar(val message: String) : ScreenEvents()
         data class Navigate(val route: String) : ScreenEvents()

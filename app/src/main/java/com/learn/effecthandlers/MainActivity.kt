@@ -28,17 +28,6 @@ import kotlinx.coroutines.delay
 
 
 var i =0
-
-
-//Launched Effect
-//Remember Coroutine Scope
-//Remember Update State
-//Disposable Effect
-//DerivedStateOf
-//ProduceState
-//Side Effect
-//SnapShotFlow
-
 class MainActivity : ComponentActivity() {
 
     val viewModel : LaunchedEffectViewModel by viewModels()
@@ -79,7 +68,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             //if you want to collect the flow or so but directly doing this in the composable is a terrible practice really never do this
             // however we have these effect handlers here which i will now go through step by step
             // i will explain all of them as i said you will find jump marks and
-            // after this video you will really know and understand effect handlers when you should which  which are rather important
+            // after this example you will really know and understand effect handlers when you should which  which are rather important
             // which are rather rarely used
             // Most commonly used one is LaunchedEffect
             i++
