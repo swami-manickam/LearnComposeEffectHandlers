@@ -21,6 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.learn.effecthandlers.launchedeffect.LaunchedEffectDemo2
 import com.learn.effecthandlers.launchedeffect.LaunchedEffectFlowDemo
 import com.learn.effecthandlers.launchedeffect.LaunchedEffectViewModel
 import com.learn.effecthandlers.ui.theme.ComposeEffectHandlersAppTheme
@@ -40,7 +41,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     /*Greeting("Android")*/
-                    LaunchedEffectFlowDemo(viewModel = viewModel)
+                    /*LaunchedEffectFlowDemo(viewModel = viewModel)*/
+                    LaunchedEffectDemo2()
                 }
             }
         }
