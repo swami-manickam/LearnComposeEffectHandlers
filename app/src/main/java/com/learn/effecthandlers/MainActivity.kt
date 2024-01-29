@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -18,20 +20,24 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.learn.effecthandlers.launchedeffect.LaunchedEffectDemo2
-import com.learn.effecthandlers.launchedeffect.LaunchedEffectFlowDemo
 import com.learn.effecthandlers.launchedeffect.LaunchedEffectViewModel
+import com.learn.effecthandlers.remembercoroutinscope.RememberCoroutineScopeDemo1
+import com.learn.effecthandlers.rememberupdatestate.RememberUpdateStateDemo1
+import com.learn.effecthandlers.sideeffect.LearnSideEffectDemo
 import com.learn.effecthandlers.ui.theme.ComposeEffectHandlersAppTheme
 import kotlinx.coroutines.delay
 
 
-var i =0
+var i = 0
+
 class MainActivity : ComponentActivity() {
 
-    val viewModel : LaunchedEffectViewModel by viewModels()
+    val viewModel: LaunchedEffectViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -42,7 +48,18 @@ class MainActivity : ComponentActivity() {
                 ) {
                     /*Greeting("Android")*/
                     /*LaunchedEffectFlowDemo(viewModel = viewModel)*/
-                    LaunchedEffectDemo2()
+                    Column (modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally ){
+                        Text(text = "LaunchedEffect Demo")
+                        LaunchedEffectDemo2()
+                        Text(text = "RememberCoroutineScope Demo")
+                        RememberCoroutineScopeDemo1()
+                        Text(text = "RememberUpdateState Demo")
+                        RememberUpdateStateDemo1()
+                        Text(text = "SideEffect Demo")
+                        LearnSideEffectDemo()
+                    }
+
                 }
             }
         }
@@ -54,9 +71,11 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     var text by remember { mutableStateOf("") }
 
 
-    Box (modifier = modifier
-        .fillMaxWidth()
-        .height(100.dp)){
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(100.dp)
+    ) {
         Button(onClick = { text += "#" }) {
 
             //What is the problem here is we are increasing the i here that could be considered as SideEffect
@@ -78,14 +97,13 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         }
     }
 
-    
-    LaunchedEffect(key1 = text ){
+
+    LaunchedEffect(key1 = text) {
         delay(100)
     }
-    
-    
-}
 
+
+}
 
 
 @Preview(showBackground = true)
